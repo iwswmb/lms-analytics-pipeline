@@ -1,0 +1,9 @@
+psycopg2-binary==2.9.9
+requests==2.31.0
+pandas==2.2.2
+numpy==1.26.4
+gspread==6.0.2
+google-auth==2.27.0
+google-auth-oauthlib==1.2.0
+google-api-python-client==2.108.0
+python-dotenv==1.2.1
