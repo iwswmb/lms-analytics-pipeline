@@ -34,6 +34,9 @@ Email-оповещения об успешном выполнении или о�
 ## 🏗️ Архитектура проекта
 ```
 lms-analytics-pipeline/
+├── ddl/		# SQL-запросы с DDL-командами
+│   └── create_table_attempts.sql		# Создание таблицы attempts
+│
 ├── etl/    # ETL-пайплайн
 │   ├── main.py        # Главный скрипт ETL-процесса
 │   └── components/    # Модульные компоненты
@@ -44,6 +47,7 @@ lms-analytics-pipeline/
 │       ├── google_sheets_reporter.py    # Загрузка статистики в Google Sheets
 │       ├── email_notifier.py            # Отправка email уведомлений
 │       └── logger_configs.py            # Настройка логирования
+│
 ├── requirements.txt    # Зависимости Python
 ├── README.md           # Описание проекта
 └── .gitignore          # Игнорируемые файлы
