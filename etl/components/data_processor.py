@@ -125,7 +125,7 @@ class DataProcessor:
         )
 
     @staticmethod
-    def get_cols():
+    def get_cols() -> List[str]:
         """Возвращает список с названиями столбцов."""
         return [
             "user_id",

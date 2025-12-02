@@ -46,7 +46,7 @@ class DatabaseInserter:
         Ничего не возвращает.
         """
         if not processed_attempts:
-            self._logger.info("Нет данных для вставки")
+            self._logger.info("Нет данных для вставки.")
             return
 
         query = """

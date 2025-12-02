@@ -60,7 +60,7 @@ class EmailNotifier:
             f"📈 Ссылка на Google Sheets: {sheets_url}\n"
             "\n"
             f"⏱ Время выполнения: {exec_time_str}\n"
-            "🕐 Следующий запуск через 24 часа...\n"
+            "🕐 Следующий запуск через 72 часа...\n"
             "\n"
             "---------------\n"
             "Автоматическое сообщение от системы мониторинга LMS."
@@ -122,7 +122,7 @@ class EmailNotifier:
             raise
 
         except (smtplib.SMTPConnectError, ConnectionRefusedError, TimeoutError) as err:
-            self._logger.error(f"Ошибка подключения к SMTP серверу: {repr(err)}")
+            self._logger.error(f"Ошибка подключения к SMTP серверу: {repr(err)}.")
             raise
 
         except Exception as err:

@@ -46,12 +46,12 @@ class GoogleSheetsReporter:
             raise
 
         except gspread.exceptions.APIError as err:
-            self._logger.error(f"Ошибка API Google Sheets: {repr(err)}")
+            self._logger.error(f"Ошибка API Google Sheets: {repr(err)}.")
             raise
 
         except Exception as err:
             self._logger.error(
-                f"Неожиданная ошибка при подключении к Google Sheets: {repr(err)}"
+                f"Неожиданная ошибка при подключении к Google Sheets: {repr(err)}."
             )
             raise
 
@@ -150,5 +150,5 @@ class GoogleSheetsReporter:
             )
 
         except Exception as err:
-            self._logger.error(f"Ошибка при записи статистики: {repr(err)}")
+            self._logger.error(f"Ошибка при записи статистики: {repr(err)}.")
             raise

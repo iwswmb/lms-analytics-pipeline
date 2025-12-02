@@ -24,7 +24,7 @@ class APIClient:
         self, client: str, client_key: str, start: str, end: str
     ) -> List[Dict[str, Any]]:
         """
-        Получаем данные о попытках студентов с помощью API.
+        Извлекаем данные о попытках студентов с помощью API.
         """
 
         if not all([client, client_key, start, end]):
@@ -45,23 +45,23 @@ class APIClient:
             response.raise_for_status()
 
             attempts_data = response.json()
-            self._logger.info(f"Успешно получено {len(attempts_data)} записей от API")
+            self._logger.info(f"Успешно получено {len(attempts_data)} записей от API.")
             return attempts_data
 
         except requests.exceptions.Timeout as err:
-            self._logger.error(f"Запрос к API выполнялся более 120 секунд: {repr(err)}")
+            self._logger.error(f"Запрос к API выполнялся более 120 секунд: {repr(err)}.")
             raise
 
         except requests.exceptions.HTTPError as err:
             self._logger.error(
-                f"HTTP ошибка {err.response.status_code} при запросе к API: {repr(err)}"
+                f"HTTP ошибка {err.response.status_code} при запросе к API: {repr(err)}."
             )
             raise
 
         except requests.exceptions.RequestException as err:
-            self._logger.error(f"Ошибка соединения с API: {repr(err)}")
+            self._logger.error(f"Ошибка соединения с API: {repr(err)}.")
             raise
 
         except Exception as err:
-            self._logger.error(f"Ошибка при получении данных от API: {repr(err)}")
+            self._logger.error(f"Ошибка при получении данных от API: {repr(err)}.")
             raise
