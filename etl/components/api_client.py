@@ -41,7 +41,7 @@ class APIClient:
         try:
             self._logger.info(f"Запрос данных за период {start} - {end}")
 
-            response = requests.get(self._url, params=params, timeout=120)
+            response = requests.get(self._url, params=params, timeout=180)
             response.raise_for_status()
 
             attempts_data = response.json()
@@ -49,7 +49,7 @@ class APIClient:
             return attempts_data
 
         except requests.exceptions.Timeout as err:
-            self._logger.error(f"Запрос к API выполнялся более 120 секунд: {repr(err)}.")
+            self._logger.error(f"Запрос к API выполнялся более 3 минут: {repr(err)}.")
             raise
 
         except requests.exceptions.HTTPError as err:

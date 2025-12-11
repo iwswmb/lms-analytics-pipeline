@@ -40,7 +40,7 @@ def get_email_notifier() -> EmailNotifier:
     """Возвращает объект класса EmailNotifier."""
     return EmailNotifier(
         smtp_server=os.getenv("SMTP_SERVER"),
-        port=465,
+        port=os.getenv("SMTP_PORT"),
         sender_email=os.getenv("SENDER_EMAIL"),
         sender_password=os.getenv("SENDER_PASSWORD"),
         recipients=os.getenv("RECIPIENTS_EMAILS").split(","),
@@ -76,7 +76,7 @@ def main():
         # Вставка в БД
         db_inserter = DatabaseInserter(
             host=os.getenv("DB_HOST"),
-            port=5432,
+            port=os.getenv("DB_PORT"),
             database=os.getenv("DB_NAME"),
             user=os.getenv("DB_USER"),
             password=os.getenv("DB_PASSWORD"),

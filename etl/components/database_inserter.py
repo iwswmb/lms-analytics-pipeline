@@ -17,7 +17,7 @@ class DatabaseInserter:
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def __init__(self, host: str, port: int, database: str, user: str, password: str):
+    def __init__(self, host: str, port: str, database: str, user: str, password: str):
         if not hasattr(self, "_initialized"):
 
             self._logger = logging.getLogger("DatabaseInserter")

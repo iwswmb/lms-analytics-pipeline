@@ -17,7 +17,7 @@ class EmailNotifier:
     def __init__(
         self,
         smtp_server: str,
-        port: int,
+        port: str,
         sender_email: str,
         sender_password: str,
         recipients: List[str],
@@ -107,9 +107,8 @@ class EmailNotifier:
 
             # Отправляем email
             self._logger.info("Отправляем email...")
-            with smtplib.SMTP_SSL(
-                self._smtp_server, self._port, context=context
-            ) as server:
+            with smtplib.SMTP(self._smtp_server, self._port, timeout=30) as server:
+                server.starttls(context=context)
                 server.login(self._sender_email, self._sender_password)
                 server.send_message(msg)
 
