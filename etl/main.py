@@ -22,7 +22,7 @@ def get_date_range() -> Tuple[str, str]:
     """
     cur_date = datetime.now()
 
-    start_date = (cur_date - timedelta(days=3)).replace(
+    start_date = (cur_date - timedelta(days=1)).replace(
         hour=0, minute=0, second=0, microsecond=0
     )
 

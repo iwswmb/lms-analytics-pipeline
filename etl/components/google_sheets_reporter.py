@@ -136,7 +136,8 @@ class GoogleSheetsReporter:
                     run_cnt=lambda x: (x == "run").sum(),
                     submit_cnt=lambda x: (x == "submit").sum(),
                 )
-                .reset_index()
+                .reset_index(),
+                on="created_at",
             )
 
             # Форматируем дату
@@ -146,7 +147,7 @@ class GoogleSheetsReporter:
             self._sheet1.append_rows(stats_df.values.tolist())
 
             self._logger.info(
-                f"Успешно добавлена статистика {stats_df['total_attempts'].sum()} попыток за {len(stats_df)} дня."
+                f"Успешно добавлена статистика {stats_df['total_attempts'].sum()} попыток за {len(stats_df)} день."
             )
 
         except Exception as err:

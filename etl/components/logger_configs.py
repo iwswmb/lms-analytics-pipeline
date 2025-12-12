@@ -21,10 +21,10 @@ def setup_logging() -> None:
     )
 
 
-def clean_old_logs(days: int = 9) -> None:
+def clean_old_logs(days: int = 3) -> None:
     """
     Удаляет старые логи.
-    По умолчанию старыми считаются логи, которым 9 дней и более.
+    По умолчанию старыми считаются логи, которым 3 дня и более.
     """
     if days < 1:
         logging.warning(f"Удаление невозможно: days={days}. Должно быть >= 1.")
