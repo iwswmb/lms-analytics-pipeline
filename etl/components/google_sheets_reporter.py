@@ -72,9 +72,9 @@ class GoogleSheetsReporter:
             headers = [
                 "Дата",
                 "Всего попыток",
+                "Уникальные пользователи",
                 "Успешные попытки",
                 "(%) успешных попыток",
-                "Уникальные пользователи",
                 "Запускали код",
                 "Проверяли код",
             ]
@@ -97,37 +97,17 @@ class GoogleSheetsReporter:
             stats_df = (
                 attempts_df.resample("D")
                 .agg(
-                    {"attempt_type": "count", "is_correct": "sum", "user_id": "nunique"}
+                    {"attempt_type": "count", "user_id": "nunique", "is_correct": "sum"}
                 )
                 .reset_index()
                 .rename(
                     columns={
                         "attempt_type": "total_attempts",
-                        "is_correct": "successful_attempts",
                         "user_id": "unique_users",
+                        "is_correct": "successful_attempts",
                     }
                 )
             )
-
-            # Процент успешных попыток с защитой от деления на ноль
-            stats_df["success_rate"] = np.where(
-                stats_df["total_attempts"] > 0,
-                (stats_df["successful_attempts"].mul(100) / stats_df["total_attempts"])
-                .astype("float64")
-                .round(2),
-                0,
-            )
-
-            # Задаем нужный порядок столбцов
-            stats_df = stats_df[
-                [
-                    "created_at",
-                    "total_attempts",
-                    "successful_attempts",
-                    "success_rate",
-                    "unique_users",
-                ]
-            ]
 
             # Количество по типам попыток
             stats_df = stats_df.merge(
@@ -139,6 +119,28 @@ class GoogleSheetsReporter:
                 .reset_index(),
                 on="created_at",
             )
+
+            # Процент успешных submit-попыток с защитой от деления на ноль
+            stats_df["success_rate"] = np.where(
+                stats_df["submit_cnt"] > 0,
+                (stats_df["successful_attempts"].mul(100) / stats_df["submit_cnt"])
+                .astype("float64")
+                .round(2),
+                0,
+            )
+
+            # Задаем нужный порядок столбцов
+            stats_df = stats_df[
+                [
+                    "created_at",
+                    "total_attempts",
+                    "unique_users",
+                    "successful_attempts",
+                    "success_rate",
+                    "run_cnt",
+                    "submit_cnt",
+                ]
+            ]
 
             # Форматируем дату
             stats_df["created_at"] = stats_df["created_at"].dt.strftime("%Y-%m-%d")
