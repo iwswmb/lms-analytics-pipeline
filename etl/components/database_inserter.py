@@ -10,6 +10,7 @@ setup_logging()
 class DatabaseInserter:
     """
     Класс для вставки обработанных данных в БД.
+    Написан по шаблону Singleton.
     """
 
     def __new__(cls, *args, **kwargs):

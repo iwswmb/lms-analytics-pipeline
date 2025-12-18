@@ -1,7 +1,7 @@
 # 🎓 LMS Analytics Pipeline
 ETL-процесс для автоматического сбора, обработки и анализа данных об учебных активностях студентов обучающей системы (LMS) крупного онлайн-университета. Система работает в полностью автоматическом режиме на удаленном сервере, ежедневно в 7:00 запускается через cron, обрабатывает данные тысяч студентов, сохраняет их в PostgreSQL, формирует отчеты в Google Sheets, обновляет дашборды в Metabase и отправляет уведомления по почте.
 ### Ссылка на дашборд:
-<a href="http://89.111.174.116:3002/public/dashboard/e9da0e82-c937-4f80-a213-39cb70815b52?date=#refresh=3600" target="_blank">↗️ LMS Analytics Overview</a>
+[↗️ LMS Analytics Overview](DASHBOARD_LINK.md)
 *Нажмите правой кнопкой мыши → "Открыть ссылку в новой вкладке"*
 
 <br>
@@ -63,7 +63,7 @@ lms-analytics-pipeline/
 │       └── logger_configs.py            # Настройка логирования
 │
 ├── bi_system/		# BI-система 
-│   ├── dashboard.md		# Описание дашборда Metabase
+│   ├── dashboard.md		# Описание дашборда 
 │   └── sql_queries/		# SQL-запросы для визуализаций
 │       ├── dau.sql                          # Daily Active Users
 │       ├── attempts_count.sql               # Кол-во попыток
@@ -170,7 +170,7 @@ graph TD
 <details> 
 <summary>Нажмите, чтобы увидеть скрины дашборда</summary>
 <img width="880" height="1000" alt="Metabase - LMS Analytics Overview_page-0001" src="https://github.com/user-attachments/assets/f2ffe4d1-d08c-41a9-bc91-2877608c15fa" />
-<img width="810" height="1000" alt="Metabase - LMS Analytics Overview_page-0002" src="https://github.com/user-attachments/assets/0a548ad0-9eff-41cd-872c-89796d5c2a8f" />
+<img width="880" height="1000" alt="Metabase - LMS Analytics Overview_page-0002" src="https://github.com/user-attachments/assets/0a548ad0-9eff-41cd-872c-89796d5c2a8f" />
 </details>
 <br>
 
@@ -305,7 +305,7 @@ services:
     container_name: metabase
     restart: unless-stopped
     ports:
-      - "3002:3000"
+      - "ваш_порт:3000"
     environment:
       JAVA_TOOL_OPTIONS: "-Xmx768m -Xms512m -XX:+UseSerialGC"
       MB_DB_TYPE: postgres

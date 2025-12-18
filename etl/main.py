@@ -101,6 +101,7 @@ def main():
             api_records_cnt=len(attempts_data),
             processed_records_cnt=len(processed_attempts),
             sheets_url=sheets_url,
+            dashboard_url=os.getenv("DASHBOARD_URL"),
             exec_time=exec_time,
         )
 

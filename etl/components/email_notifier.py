@@ -34,6 +34,7 @@ class EmailNotifier:
         api_records_cnt: int,
         processed_records_cnt: int,
         sheets_url: str,
+        dashboard_url: str,
         exec_time: timedelta = None,
     ) -> None:
         """
@@ -58,6 +59,7 @@ class EmailNotifier:
             "✅ Записи успешно вставлены в БД!\n"
             "✅ Статистика отправлена в Google Sheets!\n"
             f"📈 Ссылка на Google Sheets: {sheets_url}\n"
+            f"📉 Ссылка на Дашборд: {dashboard_url}\n"
             "\n"
             f"⏱ Время выполнения: {exec_time_str}\n"
             "🕐 Следующий запуск через 24 часа...\n"
