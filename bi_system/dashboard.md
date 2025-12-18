@@ -1,6 +1,6 @@
 # 📚 LMS Analytics Overview
 ### Ссылка на дашборд:
-[↗️ LMS Analytics Overview](../DASHBOARD_LINK.md)
+[↗️ LMS Analytics Overview](http://89.111.174.116:3002/public/dashboard/e9da0e82-c937-4f80-a213-39cb70815b52?date=#refresh=3600)
 *Нажмите правой кнопкой мыши → "Открыть ссылку в новой вкладке"*
 #### Папка с SQL-запросами, по которым построены графики: [📂 `bi_system/sql_queries`](https://github.com/iwswmb/lms-analytics-pipeline/tree/master/bi_system/sql_queries)
 

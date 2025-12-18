@@ -4,4 +4,3 @@ logs/
 .vscode/
 .pylintrc
 .env
-DASHBOARD_LINK.md
