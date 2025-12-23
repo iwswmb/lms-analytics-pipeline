@@ -1,6 +1,6 @@
 # 📚 LMS Analytics Overview
 ### Ссылка на дашборд:
-[↗️ LMS Analytics Overview](http://89.111.174.116:3002/public/dashboard/d54c36d9-c77a-4f7e-a9b0-4a8e22947758?date=#refresh=3600)
+[↗️ LMS Analytics Overview](https://clck.ru/3QxDzW?date=#refresh=3600)
 *Нажмите правой кнопкой мыши → "Открыть ссылку в новой вкладке"*
 #### Папка с SQL-запросами, по которым построены графики: [📂 `bi_system/sql_queries`](https://github.com/iwswmb/lms-analytics-pipeline/tree/master/bi_system/sql_queries)
 
@@ -20,3 +20,4 @@
 ## 📈 Визуализация
 <img width="880" height="1000" alt="Metabase - LMS Analytics Overview_page-0001" src="https://github.com/user-attachments/assets/f2ffe4d1-d08c-41a9-bc91-2877608c15fa" />
 <img width="880" height="1000" alt="Metabase - LMS Analytics Overview_page-0002" src="https://github.com/user-attachments/assets/0a548ad0-9eff-41cd-872c-89796d5c2a8f" />
+
